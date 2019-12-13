@@ -1,2 +1,2 @@
 # DowntownVisionsSafetyEscortApp
-This repository contains source code for the app to connect citizens and visitors of D
+This repository contains source code for the app to connect citizens and visitors of Downtown Wilmington is a private, non-profit organization that manages the Business Improvement District.  The Downtown Visions mission is to create, manage and promote a quality environment for people who live, work and visit Downtown Wilmington. This is accomplished by collaborating with the public and private sector entities in neighborhood revitalization and stabilization, through clean and safe initiatives, small business development, retail recruitment and retention, job creation and economic development. 
