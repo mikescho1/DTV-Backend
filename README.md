@@ -11,9 +11,9 @@ Downtown Visions employs more than 30 uniformed Safety Ambassadors to assist the
 # Authors
 Authors:
 Current members of Zip Code Wilmington Cohort 5.2:
-Chungsing Arguello
-Kievina Haynes
-Michael Schoenbeck
+Chungsing Arguello,
+Kievina Haynes,
+Michael Schoenbeck,
 David Trombello
 
 Zip Code Wilmington Alumni:
@@ -22,7 +22,7 @@ Zip Code Wilmington Alumni:
 # License
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-Acknowledgments
+# Acknowledgments:
 Thank you to all who helped make this app possible!
 
 
