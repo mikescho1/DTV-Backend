@@ -1,4 +1,5 @@
-Notes:
+Notes: Initial Meeting 12/16/19
+
 # Mike S:
 Highest Priority:
 Dispatch app
