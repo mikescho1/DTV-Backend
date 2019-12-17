@@ -22,24 +22,26 @@ public class Client {
     private String streetAddress;
     @NotNull
     private String phoneNumber;
-    //private String email;?
+    private String email;
 
     //Client constructors
     public Client() {}
 
-    public Client(Long id, String firstName, String lastName, String streetAddress, String phoneNumber) {
+    public Client(Long id, String firstName, String lastName, String streetAddress, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.streetAddress = streetAddress;
         this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
-    public Client(String firstName, String lastName, String streetAddress, String phoneNumber) {
+    public Client(String firstName, String lastName, String streetAddress, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.streetAddress = streetAddress;
         this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     //Getters and Setters
@@ -82,5 +84,13 @@ public class Client {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
