@@ -17,22 +17,26 @@ public class Ambassador {
     private String lastName;
     @NotNull
     private String phoneNumber;
+    @NotNull  //we can use the email as a log in
+    private String email;
 
     //Ambassador constructors
 
     public Ambassador() {}
 
-    public Ambassador(Long id, String firstName, String lastName, String phoneNumber) {
+    public Ambassador(Long id, String firstName, String lastName, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
-    public Ambassador(String firstName, String lastName, String phoneNumber) {
+    public Ambassador(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     //Getters and Setters
@@ -67,5 +71,13 @@ public class Ambassador {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
