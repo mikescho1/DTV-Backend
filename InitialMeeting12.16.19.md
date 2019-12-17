@@ -1,5 +1,5 @@
 Notes:
-Mike S:
+# Mike S:
 Highest Priority:
 Dispatch app
 Messages on app get sent from customers to office via email.
@@ -66,7 +66,8 @@ Wilmington has a service called “Report it or resolve it” that is apparently
 
 
 
-Kievina
+# Kievina
+
 Highest Priority:
 Interactive phase and escort services is the first step
 Doesn’t have to be an app; can extend website; could be beta to the website and have 10-20 people test it out
@@ -97,7 +98,8 @@ Databases: Salesforce, Microsoft Access, Downtown Diva, GeoPal has CRM function;
 Currently work with/hire Diamond Technologies
 Access will be provided to GeoPal account
 
-Dave
+# Dave
+
 Priority Focus:
 Way to match safety ambassadors to clients who want an escort.  (concerned about safety of the ambassadors and their showing up as a moving location on a map.) 
 Way to contact DTV via a picture and or message to let them know of issues in the neighborhood such as graffiti, or trash, missing signs, etc.  
@@ -135,7 +137,7 @@ Some sort of cloud data - what’s the storage and plan their using.  Sounds lik
 
 
 
-Chung
+# Chung
 
 Contact without calling.
 record ambassador activities.
