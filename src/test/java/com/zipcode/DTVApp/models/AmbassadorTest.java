@@ -2,13 +2,9 @@ package com.zipcode.DTVApp.models;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.assertj.core.api.Assert;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.junit.jupiter.api.Assertions;
-
 import javax.persistence.Entity;
 
 class AmbassadorTest {
