@@ -12,7 +12,7 @@ class AmbassadorTest {
 
     @BeforeEach
     void setUp() {
-        testAmbassador = new Ambassador("FirstName", "LastName", "302-123-4567", "ambassador@dtv.com");
+        testAmbassador = new Ambassador("FirstName", "LastName", "302-123-4567", "ambassador@dtv.com", "MyPassWord");
     }
 
     @Test
@@ -56,6 +56,13 @@ class AmbassadorTest {
     }
 
     @Test
+    void getPassword() {
+        String expected = "MyPassWord";
+        String actual = testAmbassador.getPassword();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     void setFirstName() {
         String expected = "NewFirstName";
         testAmbassador.setFirstName(expected);
@@ -84,6 +91,14 @@ class AmbassadorTest {
         String expected = "myNewEmail@dtv.com";
         testAmbassador.setEmail(expected);
         String actual = testAmbassador.getEmail();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void setPassword() {
+        String expected = "NewPassWordCreated";
+        testAmbassador.setPassword(expected);
+        String actual = testAmbassador.getPassword();
         Assertions.assertEquals(expected, actual);
     }
 }

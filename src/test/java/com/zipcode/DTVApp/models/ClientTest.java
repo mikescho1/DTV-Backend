@@ -12,7 +12,7 @@ class ClientTest {
 
     @BeforeEach
     void setUp() {
-        testClient = new Client("FirstName", "LastName", "1007 N. Orange St.", "856-783-9450", "myemail@gmail.com");
+        testClient = new Client("FirstName", "LastName", "1007 N. Orange St.", "856-783-9450", "myemail@gmail.com", "myPassword");
     }
 
     @Test
@@ -63,6 +63,13 @@ class ClientTest {
     }
 
     @Test
+    void getPassword() {
+        String expected = "myPassword";
+        String actual = testClient.getPassword();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     void setFirstName() {
         String expected = "NewFirstName";
         testClient.setFirstName(expected);
@@ -99,6 +106,14 @@ class ClientTest {
         String expected = "myNewEmail@gmail.com";
         testClient.setEmail(expected);
         String actual = testClient.getEmail();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void setPassword() {
+        String expected = "NewPassWordCreated";
+        testClient.setPassword(expected);
+        String actual = testClient.getPassword();
         Assertions.assertEquals(expected, actual);
     }
 }
