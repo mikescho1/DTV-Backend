@@ -12,7 +12,7 @@ class ClientTest {
 
     @BeforeEach
     void setUp() {
-        testClient = new Client("FirstName", "LastName", "1007 N. Orange St.", "856-783-9450", "myemail@gmail.com");
+        testClient = new Client("FirstName", "LastName", "1007 N. Orange St.", "456 Tatnall St.", "856-783-9450", "myemail@gmail.com");
     }
 
     @Test
@@ -44,7 +44,7 @@ class ClientTest {
     @Test
     void getStreetAddress() {
         String expected = "1007 N. Orange St.";
-        String actual = testClient.getStreetAddress();
+        String actual = testClient.getOriginAddress();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -81,8 +81,8 @@ class ClientTest {
     @Test
     void setStreetAddress() {
         String expected = "326 Tatnall St.";
-        testClient.setStreetAddress(expected);
-        String actual = testClient.getStreetAddress();
+        testClient.setOriginAddress(expected);
+        String actual = testClient.getOriginAddress();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -100,5 +100,13 @@ class ClientTest {
         testClient.setEmail(expected);
         String actual = testClient.getEmail();
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getDestinationAddress() {
+    }
+
+    @Test
+    void setDestinationAddress() {
     }
 }

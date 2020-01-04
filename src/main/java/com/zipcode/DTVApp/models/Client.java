@@ -19,7 +19,9 @@ public class Client {
     private String lastName;
     //The city, state, and zip will all be in Wilmington.  We need a way to double check people are in the designated zone.
     @NotNull
-    private String streetAddress;
+    private String originAddress;
+    @NotNull
+    private String destinationAddress;
     @NotNull
     private String phoneNumber;
     private String email;
@@ -27,19 +29,21 @@ public class Client {
     //Client constructors
     public Client() {}
 
-    public Client(Long id, String firstName, String lastName, String streetAddress, String phoneNumber, String email) {
+    public Client(Long id, String firstName, String lastName, String originAddress, String destinationAddress, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.streetAddress = streetAddress;
+        this.originAddress = originAddress;
+        this.destinationAddress = destinationAddress;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
-    public Client(String firstName, String lastName, String streetAddress, String phoneNumber, String email) {
+    public Client(String firstName, String lastName, String originAddress, String destinationAddress, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.streetAddress = streetAddress;
+        this.originAddress = originAddress;
+        this.destinationAddress = destinationAddress;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
@@ -70,12 +74,12 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public String getStreetAddress() {
-        return streetAddress;
+    public String getOriginAddress() {
+        return originAddress;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setOriginAddress(String originAddress) {
+        this.originAddress = originAddress;
     }
 
     public String getPhoneNumber() {
@@ -92,5 +96,13 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDestinationAddress() {
+        return destinationAddress;
+    }
+
+    public void setDestinationAddress(String destinationAddress) {
+        this.destinationAddress = destinationAddress;
     }
 }
