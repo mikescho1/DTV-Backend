@@ -104,9 +104,16 @@ class ClientTest {
 
     @Test
     void getDestinationAddress() {
+        String expected = "456 Tatnall St.";
+        String actual = testClient.getDestinationAddress();
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void setDestinationAddress() {
+        String expected = "8080 North Orange St.";
+        testClient.setDestinationAddress(expected);
+        String actual = testClient.getDestinationAddress();
+        Assertions.assertEquals(expected, actual);
     }
 }
