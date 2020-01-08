@@ -1,9 +1,10 @@
 package com.zipcode.DTVApp.models;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Entity
@@ -13,38 +14,58 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", updatable = false, nullable = false)
     private Long id;
-    @NotNull
+    @NotBlank(message = "Please enter a valid first name")
     private String firstName;
-    @NotNull
+    @NotBlank(message = "Please enter a valid last name")
     private String lastName;
+
     //The city, state, and zip will all be in Wilmington.  We need a way to double check people are in the designated zone.
+
     @NotNull
-    private String streetAddress;
+    private String originAddress;
+    @NotBlank(message = "PLease enter a valid destination address")
     @NotNull
+    private String destinationAddress;
+    @NotNull
+    @NotBlank(message = "Please enter a valid phone number")
     private String phoneNumber;
+    @Email
+    @NotNull
+    @NotBlank(message = "Please enter a valid email")
     private String email;
+    @NotBlank(message = "Please enter a valid password")
+    @Size(min=8, message = "Password must be at least 8 characters long")
+    private String password;
+
+
 
     //Client constructors
     public Client() {}
 
-    public Client(Long id, String firstName, String lastName, String streetAddress, String phoneNumber, String email) {
+
+    public Client(Long id, String firstName, String lastName, String originAddress, String destinationAddress, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.streetAddress = streetAddress;
+        this.originAddress = originAddress;
+        this.destinationAddress = destinationAddress;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.password = password;
     }
 
-    public Client(String firstName, String lastName, String streetAddress, String phoneNumber, String email) {
+    public Client(String firstName, String lastName, String originAddress, String destinationAddress, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.streetAddress = streetAddress;
+        this.originAddress = originAddress;
+        this.destinationAddress = destinationAddress;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.password = password;
     }
 
-    //Getters and Setters
+
+//Getters and Setters
 
     public Long getId() {
         return id;
@@ -70,12 +91,12 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public String getStreetAddress() {
-        return streetAddress;
+    public String getOriginAddress() {
+        return originAddress;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setOriginAddress(String originAddress) {
+        this.originAddress = originAddress;
     }
 
     public String getPhoneNumber() {
@@ -92,5 +113,21 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDestinationAddress () {
+        return destinationAddress;
+    }
+
+    public void setDestinationAddress (String destinationAddress){
+        this.destinationAddress = destinationAddress;
     }
 }
