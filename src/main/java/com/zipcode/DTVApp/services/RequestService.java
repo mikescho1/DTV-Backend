@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientService {
+public class RequestService {
 
     private ClientRepo clientRepo;
 
     @Autowired
-    public ClientService(ClientRepo clientRepo) {
+    public RequestService(ClientRepo clientRepo) {
         this.clientRepo = clientRepo;
     }
 }

@@ -19,34 +19,17 @@ public class Ambassador {
     private String lastName;
     @NotBlank(message = "Please enter a valid phone number")
     private String phoneNumber;
-    @NotBlank(message = "Please enter a valid email")  //we can use the email as a log in
-    @Email
-    @NotNull
-    private String email;
-    String password;
 
     //Ambassador constructors
 
-    public Ambassador() {}
+    public Ambassador() {
+    }
 
-    public Ambassador(Long id, String firstName, String lastName, String phoneNumber, String email, String password) {
-        this.id = id;
+    public Ambassador(@NotBlank(message = "Please enter a valid first name") String firstName, @NotBlank(message = "Please enter a valid last name") String lastName, @NotBlank(message = "Please enter a valid phone number") String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
     }
-
-    public Ambassador(String firstName, String lastName, String phoneNumber, String email, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
-    }
-
-    //Getters and Setters
 
     public Long getId() {
         return id;
@@ -78,21 +61,5 @@ public class Ambassador {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
