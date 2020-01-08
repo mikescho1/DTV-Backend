@@ -1,7 +1,5 @@
 package com.zipcode.DTVApp.models;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
