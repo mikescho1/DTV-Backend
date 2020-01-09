@@ -15,7 +15,10 @@ public class ReportConcern {
     @GeneratedValue
     private UUID id;
     @NotNull
-    private String name;
+    private String firstName;
+    @NotNull
+    private String lastName;
+    @NotNull
     private String message;
     @NotNull
     private String location;
@@ -26,8 +29,18 @@ public class ReportConcern {
     public ReportConcern() {
     }
 
-    public ReportConcern(@NotNull String name, String message, String location, Date date) {
-        this.name = name;
+    public ReportConcern(String firstName, String lastName, String message, String location, Date date) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.message = message;
+        this.location = location;
+        this.date = date;
+    }
+
+    public ReportConcern(UUID id, String firstName, String lastName, String message, String location, Date date) {
+        this.id=id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.message = message;
         this.location = location;
         this.date = date;
@@ -41,12 +54,20 @@ public class ReportConcern {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getMessage() {
