@@ -1,11 +1,11 @@
 package com.zipcode.DTVApp.configurations;
 
 
-import com.zipcode.DTVApp.filters.CorsFilter;
 import com.zipcode.DTVApp.filters.JwtFilter;
 import com.zipcode.DTVApp.services.userDetails.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,11 +17,17 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.security.web.session.SessionManagementFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+@Configuration
+@EnableWebMvc
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
     @Autowired
     private MyUserDetailsService myUserDetailsService;
@@ -38,14 +44,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //configure to allow anyone to access some endpoints, all other needs to be authenticated
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests().antMatchers( ).permitAll()
+        http.authorizeRequests().antMatchers( ).permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(corsFilter(), SessionManagementFilter.class);
+
+        //cors headers and cross origins
+        http.httpBasic()
+                .and().headers().frameOptions().disable()
+                .and().csrf().disable()
+                .headers()
+                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "*"))
+                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Methods", "GET, DELETE, PUT, POST"))
+                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Max-Age", "3600"))
+                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Credentials", "true"))
+                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Headers", "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization"));
+
+        //jwt filter for authentication and authorization
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+        //Its a heroku thing
+        http.requiresChannel().requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure();
     }
 
 
@@ -55,16 +75,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    @Bean
-    public CorsFilter corsFilter(){
-        CorsFilter filter = new CorsFilter();
-        return filter;
+    @Override
+    public void addCorsMappings(CorsRegistry registry){
+        registry.addMapping("/**");
     }
 
-
-    //change this to actual pass encoder
-    @Bean
-    public PasswordEncoder getPasswordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
 }

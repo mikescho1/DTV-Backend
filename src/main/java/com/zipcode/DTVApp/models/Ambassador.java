@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 @Entity
 public class Ambassador {
@@ -12,7 +13,7 @@ public class Ambassador {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-    private Long id;
+    private UUID id;
     @NotBlank(message = "Please enter a valid first name")
     private String firstName;
     @NotBlank(message = "Please enter a valid last name")
@@ -31,11 +32,11 @@ public class Ambassador {
         this.phoneNumber = phoneNumber;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

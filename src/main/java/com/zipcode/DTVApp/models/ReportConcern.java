@@ -6,13 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 public class ReportConcern {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
     @NotNull
     private String name;
     private String message;
@@ -32,11 +33,11 @@ public class ReportConcern {
         this.date = date;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
