@@ -10,7 +10,7 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-    private UUID id;
+    private Long id;
     @NotNull
     private String firstName;
     @NotNull
@@ -30,11 +30,11 @@ public class Admin {
         this.password = password;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

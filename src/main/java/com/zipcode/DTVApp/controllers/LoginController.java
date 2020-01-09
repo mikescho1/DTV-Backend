@@ -41,9 +41,6 @@ public class LoginController {
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
 
-        //set the user last time log in time
-        //TO DO
-
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
 
     }

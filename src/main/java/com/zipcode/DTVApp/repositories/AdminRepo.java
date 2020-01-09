@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminRepo extends CrudRepository<Admin, Long> {
     Admin findByUsername(String username);
-    Admin findByUsernameAndPassword(String username, String password);
+    Boolean existsByUsername(String username);
 }

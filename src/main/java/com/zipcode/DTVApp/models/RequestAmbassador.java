@@ -5,6 +5,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -13,7 +14,7 @@ public class RequestAmbassador {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", updatable = false, nullable = false)
-    private UUID id;
+    private Long id;
     @NotBlank(message = "Please enter a valid first name")
     private String name;
 
@@ -31,33 +32,26 @@ public class RequestAmbassador {
     @NotNull
     @NotBlank(message = "Please enter a valid email")
     private String email;
+    private Date date;
     private Long ambassadorId;
 
     public RequestAmbassador() {
     }
 
-    public RequestAmbassador(@NotBlank(message = "Please enter a valid first name") String name, @NotNull String pickUpLocation, @NotBlank(message = "PLease enter a valid destination address") @NotNull String dropOffLocation, @NotNull @NotBlank(message = "Please enter a valid phone number") String phoneNumber, @Email @NotNull @NotBlank(message = "Please enter a valid email") String email) {
+    public RequestAmbassador(@NotBlank(message = "Please enter a valid first name") String name, @NotNull String pickUpLocation, @NotBlank(message = "PLease enter a valid destination address") @NotNull String dropOffLocation, @NotNull @NotBlank(message = "Please enter a valid phone number") String phoneNumber, @Email @NotNull @NotBlank(message = "Please enter a valid email") String email, Date date) {
         this.name = name;
         this.pickUpLocation = pickUpLocation;
         this.dropOffLocation = dropOffLocation;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.date = date;
     }
 
-    public RequestAmbassador(@NotBlank(message = "Please enter a valid first name") String name, @NotNull String pickUpLocation, @NotBlank(message = "PLease enter a valid destination address") @NotNull String dropOffLocation, @NotNull @NotBlank(message = "Please enter a valid phone number") String phoneNumber, @Email @NotNull @NotBlank(message = "Please enter a valid email") String email, Long ambassadorId) {
-        this.name = name;
-        this.pickUpLocation = pickUpLocation;
-        this.dropOffLocation = dropOffLocation;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.ambassadorId = ambassadorId;
-    }
-
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -99,6 +93,14 @@ public class RequestAmbassador {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Long getAmbassadorId() {
