@@ -13,7 +13,7 @@ public class Ambassador {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-    private UUID id;
+    private Long id;
     @NotBlank(message = "Please enter a valid first name")
     private String firstName;
     @NotBlank(message = "Please enter a valid last name")
@@ -32,11 +32,11 @@ public class Ambassador {
         this.phoneNumber = phoneNumber;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

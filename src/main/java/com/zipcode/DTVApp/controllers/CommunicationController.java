@@ -1,8 +1,0 @@
-package com.zipcode.DTVApp.controllers;
-
-
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-class CommunicationController {
-}

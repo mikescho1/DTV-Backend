@@ -14,7 +14,7 @@ public class RequestAmbassador {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", updatable = false, nullable = false)
-    private UUID id;
+    private Long id;
     @NotBlank(message = "Please enter a valid first name")
     private String name;
 
@@ -47,11 +47,11 @@ public class RequestAmbassador {
         this.date = date;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

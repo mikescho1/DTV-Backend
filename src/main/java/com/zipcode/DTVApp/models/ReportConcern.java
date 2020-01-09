@@ -13,7 +13,7 @@ public class ReportConcern {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    private Long id;
     @NotNull
     private String name;
     private String message;
@@ -33,11 +33,11 @@ public class ReportConcern {
         this.date = date;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
