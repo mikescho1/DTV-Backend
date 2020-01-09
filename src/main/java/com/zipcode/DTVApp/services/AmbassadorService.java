@@ -49,4 +49,5 @@ public class AmbassadorService {
     public Iterable<Ambassador> findAll(){
         return ambassadorRepo.findAll();
     }
+
 }
