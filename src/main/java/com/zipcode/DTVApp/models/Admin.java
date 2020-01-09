@@ -1,35 +1,33 @@
 package com.zipcode.DTVApp.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Entity
-public class Ambassador {
-    //Ambassador instance fields
+public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private UUID id;
-    @NotBlank(message = "Please enter a valid first name")
+    @NotNull
     private String firstName;
-    @NotBlank(message = "Please enter a valid last name")
+    @NotNull
     private String lastName;
-    @NotBlank(message = "Please enter a valid phone number")
-    private String phoneNumber;
+    @NotNull
+    private String username;
+    @NotNull
+    private String password;
 
-    //Ambassador constructors
-
-    public Ambassador() {
+    public Admin() {
     }
 
-    public Ambassador(@NotBlank(message = "Please enter a valid first name") String firstName, @NotBlank(message = "Please enter a valid last name") String lastName, @NotBlank(message = "Please enter a valid phone number") String phoneNumber) {
+    public Admin(@NotNull String firstName, @NotNull String lastName, @NotNull String username, @NotNull String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
+        this.username = username;
+        this.password = password;
     }
 
     public UUID getId() {
@@ -56,11 +54,19 @@ public class Ambassador {
         this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

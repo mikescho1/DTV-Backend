@@ -1,4 +1,4 @@
-package com.zipcode.DTVApp.authentication;
+package com.zipcode.DTVApp.utility.authentication;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
