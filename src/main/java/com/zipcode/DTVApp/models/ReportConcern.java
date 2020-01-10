@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -22,14 +23,14 @@ public class ReportConcern {
     private String message;
     @NotNull
     private String location;
-    private Date date;
+    private LocalDate date;
     //optional image upload
 
 
     public ReportConcern() {
     }
 
-    public ReportConcern(String firstName, String lastName, String message, String location, Date date) {
+    public ReportConcern(String firstName, String lastName, String message, String location, LocalDate date) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.message = message;
@@ -37,7 +38,7 @@ public class ReportConcern {
         this.date = date;
     }
 
-    public ReportConcern(UUID id, String firstName, String lastName, String message, String location, Date date) {
+    public ReportConcern(UUID id, String firstName, String lastName, String message, String location, LocalDate date) {
         this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -86,11 +87,11 @@ public class ReportConcern {
         this.location = location;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }
