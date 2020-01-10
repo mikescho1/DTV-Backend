@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* DowntownVisionsSafetyEscortApp
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.zipcode.DtvAppApplication
