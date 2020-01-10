@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.zipcode</groupId>
-	<artifactId>dtv-backend</artifactId>
+	<artifactId>DtvApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DTVApp</name>
 	<description>Demo project for Spring Boot</description>
@@ -65,25 +65,22 @@
 	</dependencies>
 	<build>
 		<plugins>
-	<plugin>
-		<artifactId>maven-assembly-plugin</artifactId>
-		<version>3.3.9</version>
-		<configuration>
-			<descriptorRefs>
-				<descriptorRef>jar-with-dependencies</descriptorRef>
-			</descriptorRefs>
-			<finalName>DTVApp</finalName>
-		</configuration>
-	</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals><goal>copy-dependencies</goal></goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>com.heroku.sdk</groupId>
 				<artifactId>heroku-maven-plugin</artifactId>
-				<configuration>
-					<appName>DTVApp</appName>
-					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
-					</processTypes>
-				</configuration>
+				<version>2.0.15</version>
 			</plugin>
 		</plugins>
 	</build>
