@@ -1,1 +1,3 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.zipcode.DTVApp.DtvAppApplication
+
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.zipcode.DtvAppApplication
+
