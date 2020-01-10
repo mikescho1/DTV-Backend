@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface AdminRepo extends CrudRepository<Admin, UUID> {
+public interface AdminRepo extends CrudRepository<Admin, Long> {
     Admin findByUsername(String username);
     Boolean existsByUsername(String username);
 }
