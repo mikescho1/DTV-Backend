@@ -2,6 +2,7 @@ package com.zipcode.DTVApp.controllers;
 
 
 import com.zipcode.DTVApp.services.ReportService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.zipcode.DTVApp.models.ReportConcern;
 import com.zipcode.DTVApp.services.ReportService;
@@ -22,6 +23,10 @@ public class ReportController {
     @GetMapping
     public ResponseEntity<Iterable<ReportConcern>> displayAllRePorts (){
         return new ResponseEntity<>(reportService.displayAllConcerns(), HttpStatus.OK);
+    }
+
+    public ResponseEntity<ReportConcern> displayOneReport (Long reportId){
+        return new ResponseEntity<>(reportService.displayConcernByID(reportId), HttpStatus.OK);
     }
 
 }

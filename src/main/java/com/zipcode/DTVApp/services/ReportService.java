@@ -29,7 +29,7 @@ public class ReportService {
         return reportRepo.findAll();
     }
 
-    public ReportConcern displayConcernByID (UUID reportID){
+    public ReportConcern displayConcernByID (Long reportID){
         if (reportRepo.findById(reportID).isPresent()) {
             return reportRepo.findById(reportID).get();
         }
@@ -47,7 +47,7 @@ public class ReportService {
         return reportRepo.save(submittedReport);
     }
 
-    public Boolean deleteConcern (UUID reportID) {
+    public Boolean deleteConcern (Long reportID) {
         if(reportRepo.findById(reportID).isPresent()) {
             reportRepo.deleteById(reportID);
             return true;
