@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 public class ReportConcern {
@@ -37,7 +36,7 @@ public class ReportConcern {
         this.date = date;
     }
 
-    public ReportConcern(UUID id, String firstName, String lastName, String message, String location, Date date) {
+    public ReportConcern(Long id, String firstName, String lastName, String message, String location, Date date) {
         this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
