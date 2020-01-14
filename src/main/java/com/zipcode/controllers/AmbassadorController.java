@@ -39,6 +39,16 @@ public class AmbassadorController {
         return new ResponseEntity<>(ambassadorService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/ambassadors/name/{firstName}")
+    public ResponseEntity<Ambassador> findByFirstName(@PathVariable String firstName){
+        return new ResponseEntity<>(ambassadorService.findByFirstName(firstName), HttpStatus.OK);
+    }
+
+    @GetMapping("ambassadors/last/{lastName}")
+    public ResponseEntity<Ambassador> findByLastName(@PathVariable String lastName){
+        return new ResponseEntity<>(ambassadorService.findByLastName(lastName), HttpStatus.OK);
+    }
+
 
 
 
