@@ -1,11 +1,12 @@
 package com.zipcode.configurations;
 
-
 import com.zipcode.filters.JwtFilter;
 import com.zipcode.services.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,7 +24,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
-@EnableWebSecurity
 @Configuration
 @EnableWebMvc
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter implemen
     //configure to allow anyone to access some endpoints, all other needs to be authenticated
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/admin/create", "/authenticate","/admin/*", "/admins").permitAll()
+        http.authorizeRequests().antMatchers("/admin/create", "/authenticate","/admin/*", "/admins", "/reports/").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
