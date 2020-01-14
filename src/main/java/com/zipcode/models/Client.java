@@ -1,5 +1,8 @@
 package com.zipcode.models;
 
+import com.zipcode.utility.EmailValidator;
+import com.zipcode.utility.PasswordValidator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -57,6 +60,8 @@ public class Client {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (EmailValidator.validateEmail(email)) {
+            this.email = email;
+        }
     }
 }

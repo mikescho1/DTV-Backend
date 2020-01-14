@@ -74,4 +74,13 @@ public class ClientTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    void setEmail2() {
+        //email won't get changed because it's invalid
+        String expected = "myNewEmail@";
+        testClient.setEmail(expected);
+        String actual = testClient.getEmail();
+        Assertions.assertEquals("myemail@gmail.com", actual);
+    }
+
 }
