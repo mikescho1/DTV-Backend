@@ -27,7 +27,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 @Configuration
 @ComponentScan("com.zipcode.services.userDetails")
-@ComponentScan("com.zipcode.utility")
 @EnableWebMvc
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 

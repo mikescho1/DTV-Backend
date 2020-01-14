@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@ComponentScan("com.zipcode.services")
 public class AdminController {
 
     @Autowired

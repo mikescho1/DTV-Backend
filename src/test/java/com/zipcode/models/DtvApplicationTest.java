@@ -20,6 +20,7 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @WebMvcTest
 public class DtvApplicationTest {
+
     @Autowired
     private MockMvc mockMvc;
 
