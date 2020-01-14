@@ -14,31 +14,30 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Collections;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
 public class DtvApplicationTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+//    @Autowired
+//    private MockMvc mockMvc;
 
-    @MockBean
-    private AdminRepo adminRepo;
-
-    @Test
-    public void contextLoad() throws Exception {
-        when(adminRepo.findAll()).thenReturn(
-                Collections.emptyList()
-        );
-
-        MvcResult mvcResult =  mockMvc.perform(
-                MockMvcRequestBuilders.get("/admins").accept(MediaType.APPLICATION_JSON)
-        ).andReturn();
-
-        System.out.println(mvcResult.getResponse());
-
-        verify(adminRepo).findAll();
-    }
+//    @MockBean
+//    private AdminRepo adminRepo;
+//
+//    @Test
+//    public void contextLoad() throws Exception {
+//        when(adminRepo.findAll()).thenReturn(
+//                Collections.emptyList()
+//        );
+//
+//        MvcResult mvcResult =  mockMvc.perform(
+//                MockMvcRequestBuilders.get("/admins").accept(MediaType.APPLICATION_JSON)
+//        ).andReturn();
+//
+//        System.out.println(mvcResult.getResponse());
+//
+//        verify(adminRepo).findAll();
+//    }
 }
