@@ -4,6 +4,7 @@ package com.zipcode.filters;
 import com.zipcode.services.MyUserDetailsService;
 import com.zipcode.utility.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
+@ComponentScan("com.zipcode.utility")
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired

@@ -3,8 +3,10 @@ package com.zipcode.services;
 import com.zipcode.models.Ambassador;
 import com.zipcode.repositories.AmbassadorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
+@ComponentScan("com.zipcode.repositories")
 @Service
 public class AmbassadorService {
 
@@ -50,4 +52,11 @@ public class AmbassadorService {
         return ambassadorRepo.findAll();
     }
 
+    public Ambassador findByFirstName(String firstName) {
+        return ambassadorRepo.findByFirstName(firstName);
+    }
+
+    public Ambassador findByLastName(String lastName) {
+        return ambassadorRepo.findByLastName(lastName);
+    }
 }
