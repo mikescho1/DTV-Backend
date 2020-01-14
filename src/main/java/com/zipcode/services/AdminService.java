@@ -4,18 +4,23 @@ import com.zipcode.models.Admin;
 import com.zipcode.repositories.AdminRepo;
 import com.zipcode.utility.authentication.PasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@ComponentScan("com.zipcode.repositories")
 @Service
 public class AdminService {
 
-    @Autowired
-    private AdminRepo adminRepo;
+    private final AdminRepo adminRepo;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-
+    public AdminService(AdminRepo adminRepo, PasswordEncoder passwordEncoder) {
+        this.adminRepo = adminRepo;
+        this.passwordEncoder = passwordEncoder;
+    }
 
 
     //new

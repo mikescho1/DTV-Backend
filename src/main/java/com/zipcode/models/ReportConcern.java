@@ -37,6 +37,7 @@ public class ReportConcern {
         this.date = date;
     }
 
+
     public ReportConcern(Long id, String firstName, String lastName, String message, String location, LocalDate date) {
         this.id=id;
         this.firstName = firstName;
